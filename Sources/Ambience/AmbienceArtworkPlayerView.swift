@@ -118,18 +118,9 @@ public class AmbienceArtworkPlayerView: UIView {
     // MARK: - Private Methods
 
     private func setupPlayer() {
+        player.isMuted = true
         playerLayer.player = player
         updateVideoGravity()
-        setupAudioSession()
-    }
-
-    private func setupAudioSession() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Failed to set audio session category: \(error)")
-        }
     }
 
     private func setupNotifications() {
